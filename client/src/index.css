@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 84.2%, 60.2%);
+  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  
+  /* Custom Game Colors */
+  --game-primary: hsl(240, 44%, 9%);
+  --game-secondary: hsl(240, 36%, 16%);
+  --game-accent: hsl(348, 74%, 61%);
+  --game-success: hsl(210, 62%, 19%);
+  --game-warning: hsl(39, 85%, 51%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(0, 84.2%, 60.2%);
+  --primary-foreground: hsl(60, 9.1%, 97.8%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-game-primary {
+    background-color: var(--game-primary);
+  }
+  
+  .bg-game-secondary {
+    background-color: var(--game-secondary);
+  }
+  
+  .bg-game-accent {
+    background-color: var(--game-accent);
+  }
+  
+  .bg-game-success {
+    background-color: var(--game-success);
+  }
+  
+  .bg-game-warning {
+    background-color: var(--game-warning);
+  }
+  
+  .text-game-primary {
+    color: var(--game-primary);
+  }
+  
+  .text-game-secondary {
+    color: var(--game-secondary);
+  }
+  
+  .text-game-accent {
+    color: var(--game-accent);
+  }
+  
+  .text-game-success {
+    color: var(--game-success);
+  }
+  
+  .text-game-warning {
+    color: var(--game-warning);
+  }
+  
+  .border-game-primary {
+    border-color: var(--game-primary);
+  }
+  
+  .border-game-secondary {
+    border-color: var(--game-secondary);
+  }
+  
+  .border-game-accent {
+    border-color: var(--game-accent);
+  }
+  
+  .border-game-success {
+    border-color: var(--game-success);
+  }
+  
+  .border-game-warning {
+    border-color: var(--game-warning);
+  }
+}
+
+/* Custom animations for psychological effect */
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s infinite;
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Death Mode specific styles */
+.death-mode {
+  cursor: crosshair;
+}
+
+.death-mode .card {
+  box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+}
+
+.death-mode .text-game-accent {
+  text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--game-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--game-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(348, 74%, 50%);
+}
