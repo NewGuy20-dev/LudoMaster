@@ -59,6 +59,8 @@ export const insertGameSchema = createInsertSchema(games).pick({
   ownerId: true,
   mode: true,
   maxMoves: true,
+}).extend({
+  maxMoves: z.number().default(1000),
 });
 
 export const insertGamePlayerSchema = createInsertSchema(gamePlayers).pick({

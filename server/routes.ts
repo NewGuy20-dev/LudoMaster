@@ -93,6 +93,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create game
   app.post("/api/games", async (req, res) => {
     try {
+      console.log('Creating game with data:', req.body);
       const gameData = insertGameSchema.parse(req.body);
       const game = await storage.createGame(gameData);
       
@@ -107,7 +108,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.json({ game });
     } catch (error) {
-      res.status(400).json({ error: "Invalid game data" });
+      console.error('Game creation error:', error);
+      res.status(400).json({ error: "Invalid game data", details: error.message });
     }
   });
 
